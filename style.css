@@ -1,0 +1,48 @@
+:root {
+  --maroon: #52060c;
+  --red: #8d111a;
+  --gold: #f5cd72;
+  --cream: #fff2cf;
+  --glass: rgba(70, 4, 10, .54);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+body { margin: 0; min-width: 320px; color: var(--cream); background: var(--maroon); font-family: "Tiro Devanagari Marathi", serif; }
+
+.background { position: fixed; inset: 0; z-index: -3; background: url("ganpati-background.jpg") center/cover no-repeat; transform: scale(1.02); }
+.shade { position: fixed; inset: 0; z-index: -2; background: linear-gradient(180deg, rgba(45,0,4,.12), rgba(55,0,5,.5) 48%, rgba(28,0,3,.78)); }
+.petals { position: fixed; inset: 0; pointer-events: none; z-index: 5; overflow: hidden; }
+.petal { position: absolute; top: -8vh; color: var(--gold); opacity: .48; animation: fall linear infinite; }
+
+.panel { min-height: 100svh; padding: 34px 20px 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; scroll-snap-align: start; text-align: center; position: relative; }
+.hero { justify-content: space-between; }
+.eyebrow { margin: 0; color: var(--gold); letter-spacing: .08em; text-shadow: 0 2px 12px #290003; font-size: clamp(1rem, 4vw, 1.35rem); }
+.spacer { min-height: 30vh; }
+.glass { width: min(92vw, 520px); padding: 26px 22px; border: 1px solid rgba(245,205,114,.55); border-radius: 24px; background: linear-gradient(145deg, rgba(100,8,15,.62), var(--glass)); box-shadow: 0 18px 50px rgba(20,0,2,.5), inset 0 1px rgba(255,255,255,.13); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.hero-card { margin-top: auto; }
+.welcome, .subtitle { color: var(--gold); margin: 4px 0; }
+h1 { margin: 8px 0; font-family: Khand, sans-serif; font-size: clamp(2.15rem, 10vw, 4rem); line-height: .95; letter-spacing: .07em; color: #fff6d8; text-shadow: 0 3px 0 #7d2517, 0 0 22px rgba(255,205,102,.45); }
+h2 { margin: 4px 0 12px; color: var(--gold); font-family: Khand, sans-serif; font-size: clamp(1.75rem, 7vw, 2.6rem); }
+.ornament { color: var(--gold); font-size: 1.5rem; }
+.date { margin: 6px 0 16px; font-family: Khand, sans-serif; font-size: 1.65rem; font-weight: 700; color: #fff5d2; }
+.divider { display: flex; align-items: center; gap: 10px; color: var(--gold); margin: 10px 0 18px; }
+.divider::before, .divider::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.invite-card p { font-size: clamp(1rem, 4.2vw, 1.22rem); line-height: 1.75; margin: 9px 0; }
+.message, .morya { color: var(--gold); font-weight: 700; }
+.pin { font-size: 2rem; margin: 4px; }
+.address { font-family: Khand, sans-serif; font-size: clamp(1.35rem, 5.3vw, 1.8rem); line-height: 1.45; margin: 10px 0; }
+.city { color: var(--gold); font-size: 1.35rem; font-weight: 700; }
+.call-button, .share-button { display: inline-flex; align-items: center; justify-content: center; margin-top: 18px; padding: 12px 22px; border-radius: 999px; border: 1px solid #ffe3a0; color: #4c070b; background: linear-gradient(135deg, #fff1bd, #d99a32); font: 700 1.05rem Khand, sans-serif; text-decoration: none; box-shadow: 0 8px 24px rgba(0,0,0,.35); cursor: pointer; }
+.share-button { margin-top: 24px; }
+.closing { margin-top: 24px; color: var(--gold); }
+.scroll-cue { margin-top: 18px; color: var(--cream); text-decoration: none; font: 700 .82rem Khand, sans-serif; letter-spacing: .16em; text-shadow: 0 2px 8px #000; animation: bob 1.5s ease-in-out infinite; }
+.scroll-cue span { display: block; color: var(--gold); font-size: 1.8rem; line-height: .7; }
+footer { margin-top: 18px; color: var(--gold); font-size: .9rem; }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@keyframes bob { 50% { transform: translateY(7px); } }
+@keyframes fall { to { transform: translate3d(35px, 112vh, 0) rotate(420deg); } }
+@media (min-width: 700px) { .panel { padding-inline: 32px; } .glass { padding: 34px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
